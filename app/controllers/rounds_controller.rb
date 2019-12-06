@@ -1,3 +1,4 @@
+
 class RoundsController < ApplicationController
     
     def index
@@ -30,13 +31,20 @@ class RoundsController < ApplicationController
         round.destroy
     end
 
-    # def get_questions
-    #     render :json => 
-    # end
+    def get_questions
+        render :json => (RestClient.get 'http://jservice.io/api/clues', headers = {params: {category: rand(1..10000)}})
+    end
 
-    # def get_questions_helper
-        
-    # end
+   
+
+
+
+    def get_questions_helper
+       array = (RestClient.get 'http://jservice.io/api/clues', headers = {params: {category: rand(1..10000)}})
+       
+
+       return 
+    end
     
     private
 
