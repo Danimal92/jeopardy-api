@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2019_12_04_012154) do
 
   create_table "rounds", force: :cascade do |t|
     t.text "questions"
-    t.string "money"
+    t.integer "money"
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

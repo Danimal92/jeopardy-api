@@ -21,7 +21,7 @@ class RoundsController < ApplicationController
     def create
         user = User.find(params[:user_id])
         round = Round.create(set_param)
-        user.points = user.points + Round.money
+        user.points = user.points + round.money
         user.save
         render :json => round
     end
