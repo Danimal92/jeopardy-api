@@ -13,7 +13,9 @@
 ActiveRecord::Schema.define(version: 2019_12_04_012154) do
 
   create_table "rounds", force: :cascade do |t|
-    t.text "questions"
+    t.text "question"
+    t.text "user_input"
+    t.text "actual_answer"
     t.integer "money"
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
