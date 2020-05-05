@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :rounds
+  resources :users
+  
+  post 'get_user_by_name' => "users#get_user_by_name"
+
+  get 'get_questions' => 'rounds#get_questions'
+
 end
