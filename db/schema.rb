@@ -12,12 +12,15 @@
 
 ActiveRecord::Schema.define(version: 2019_12_04_012154) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "rounds", force: :cascade do |t|
     t.text "question"
     t.text "user_input"
     t.text "actual_answer"
     t.integer "money"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_rounds_on_user_id"

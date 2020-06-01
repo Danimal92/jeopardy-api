@@ -32,17 +32,19 @@ class RoundsController < ApplicationController
     end
 
     def get_questions
-        render :json => (RestClient.get 'http://jservice.io/api/clues', headers = {params: {category: rand(1..10000)}})
+        p "https://opentdb.com/api.php?amount=#{params[:amount]}&category=#{params[:category]}&type=#{params[:type]}&difficulty=#{params[:difficulty]}"
+        render :json => (RestClient.get "https://opentdb.com/api.php?amount=#{params[:amount]}&category=#{params[:category]}&type=#{params[:type]}&difficulty=#{params[:difficulty]}")
     end
 
-   
+   def get_categories
+    render :json => (RestClient.get 'https://opentdb.com/api_category.php', headers = {})
+    
+   end
 
 
 
     def get_questions_helper
        array = (RestClient.get 'http://jservice.io/api/clues', headers = {params: {category: rand(1..10000)}})
-       
-
        return 
     end
     
